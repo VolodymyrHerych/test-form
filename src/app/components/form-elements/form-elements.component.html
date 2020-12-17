@@ -1,0 +1,44 @@
+<mat-slide-toggle checked="true" color="primary" (change)="toggleInput($event)">Turn off input!</mat-slide-toggle>
+
+<form [formGroup]="form">
+    <div class="field">
+        <mat-form-field appearance="outline">
+            <mat-label>Input Label</mat-label>
+            <input
+                matInput
+                placeholder="Placeholder"
+                type="text"
+                formControlName="textInput">
+            <mat-icon *ngIf="textInput.value" (click)="clearInput()" matSuffix>clear</mat-icon>
+        </mat-form-field>
+        <mat-label class="error-message" *ngIf="textInput.invalid && textInput.touched">Error message</mat-label>
+    </div>
+</form>
+
+<br/>
+
+<div class="widget-container">
+    <div class="left-side">
+        <h2>Hello, Dr. Robert Fox!</h2>
+        <p>Today you have 12 appointments</p>
+        <button
+            *ngIf="!showCalendar"
+            (click)="showCalendar = !showCalendar" 
+            class="btn" 
+            mat-raised-button 
+            color="primary">
+            Open Calendar</button>
+        <button
+            *ngIf="showCalendar"
+            (click)="showCalendar = !showCalendar" 
+            class="btn"
+            mat-raised-button
+            color="primary">
+            Close Calendar</button>
+    </div>
+    <div class="image-placeholder">Image<br/>Placeholder</div>
+</div>
+
+<br/>
+
+<app-calendar *ngIf="showCalendar"></app-calendar>

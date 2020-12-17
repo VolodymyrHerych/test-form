@@ -1,0 +1,17 @@
+<div class="calendar-container">
+    <div class="calendar-container__header">
+        <p>{{ date | moment:'MMMM'}}</p>
+        <div class="navigation">
+            <mat-icon (click)="getWeek(-1)">keyboard_arrow_left</mat-icon>
+            <p>{{date | moment:'MMM'}} {{weekDays[0].date}}-{{weekDays[6].date}}</p>
+            <mat-icon (click)="getWeek(1)">keyboard_arrow_right</mat-icon>
+        </div>
+    </div>
+    <div class="calendar-container__week">
+        <div *ngFor="let day of weekDays" [ngClass]="{current:day.current}" class="day">
+            <div class="name">{{day.name}}</div>
+            <div class="date">{{day.date}}</div>
+            <div *ngIf="day.current" class="circle-spot"></div>
+        </div>
+    </div>
+</div>

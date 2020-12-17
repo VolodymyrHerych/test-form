@@ -1,0 +1,19 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap') format('truetype');
+    font-weight: normal;;
+    font-style: normal;
+}
+
+body {
+    font-family: 'Roboto';
+    font-weight: 400;
+    padding: 30px;
+}
+
+@mixin md-icon-size($size: 24px) {
+    font-size: $size;
+    height: $size;
+    width: $size;
+    line-height: $size;
+}

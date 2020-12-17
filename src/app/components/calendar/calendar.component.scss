@@ -1,0 +1,78 @@
+@import "src/styles.scss";
+
+.calendar-container {
+    width: 382px;
+    height: 96px;
+    padding: 10px;
+    border-radius: 10px;
+    box-sizing: border-box;  
+    background-color: #F9F9F9;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        & > p {
+            color: #084734;
+        }
+
+        & * {
+            margin: 0;
+        }
+    }
+
+    .navigation {
+        display: flex;
+
+        mat-icon {
+            @include md-icon-size(20px);
+            cursor: pointer;
+        }
+
+        p {
+            margin: 0 7px;
+            color: #263238;
+        }
+    }
+
+    &__week {
+        display: flex;
+        justify-content: space-between;
+
+        .day {
+            position: relative;
+            width: 40px;
+            height: 42px;
+            text-align: center;
+        }
+
+        .name {
+            font-size: 10px;
+        }
+
+        .date {
+            font-size: 12px;
+            font-weight: 500;
+            margin-top: -2px;
+        }
+
+        .current {
+            background-color: rgba($color: #084734, $alpha: 0.1);
+            border-radius: 4px;
+        }
+
+        .circle-spot {
+            position: absolute;
+            bottom: 4px;
+            left: calc(50% - 1.5px);
+            width: 3px;
+            height: 2px;
+            border-radius: 50%;
+            background-color: #3A4BA6;
+        }
+    }
+}
