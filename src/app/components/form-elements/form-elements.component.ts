@@ -12,25 +12,21 @@ export class FormElementsComponent implements OnInit {
     public form: FormGroup;
     public showCalendar = false;
 
-    get textInput(): any { return this.form.controls.textInput; }
+    get textInput(): any {
+        return this.form.controls.textInput;
+    }
 
     constructor() { }
 
-    ngOnInit(): void {
+    public ngOnInit(): void {
         this.initForm();
     }
 
-    private initForm(): void {
-        this.form = new FormGroup({
-            textInput: new FormControl('', [Validators.required, Validators.minLength(5)]),
-        });
-    }
-
-    clearInput(): void {
+    public clearInput(): void {
         this.textInput.reset();
     }
 
-    toggleInput(event: any): void {
+    public toggleInput(event: any): void {
         if (event.checked) {
             this.textInput.enable();
         } else {
@@ -39,4 +35,10 @@ export class FormElementsComponent implements OnInit {
         }
     }
 
+    private initForm(): void {
+        const {required, minLength} = Validators;
+        this.form = new FormGroup({
+            textInput: new FormControl('', [required, minLength(5)]),
+        });
+    }
 }
